@@ -1,0 +1,234 @@
+/* Dosya: /admin/assets/css/admin.css */
+/* Admin Panel Özel Stilleri */
+
+/* SEO Skor Badge */
+#seo-score {
+    font-size: 14px;
+    padding: 4px 10px;
+}
+
+#seo-score.good {
+    background-color: #2fb344 !important;
+}
+
+#seo-score.ok {
+    background-color: #f76707 !important;
+}
+
+#seo-score.poor {
+    background-color: #d63939 !important;
+}
+
+/* SEO İpuçları */
+#seo-tips {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.seo-tip {
+    padding: 4px 0;
+}
+
+/* Google Önizleme */
+#preview-title {
+    cursor: default;
+    word-break: break-word;
+}
+
+#preview-url {
+    cursor: default;
+    word-break: break-all;
+}
+
+#preview-desc {
+    cursor: default;
+    line-height: 1.4;
+}
+
+/* Karakter Sayaçları */
+.text-danger {
+    color: #d63939 !important;
+}
+
+.text-warning {
+    color: #f76707 !important;
+}
+
+.text-success {
+    color: #2fb344 !important;
+}
+
+/* Resim Önizleme */
+.image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Tablo iyileştirmeleri */
+.table-vcenter td,
+.table-vcenter th {
+    vertical-align: middle;
+}
+
+/* Kartlar */
+.card-header {
+    font-weight: 500;
+}
+
+/* Form hint */
+.form-hint {
+    color: #626976;
+    font-size: 0.875rem;
+}
+
+/* Badge düzenlemeleri */
+.badge {
+    font-weight: 500;
+}
+
+/* Datagrid */
+.datagrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.datagrid-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.datagrid-title {
+    color: #626976;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.datagrid-content {
+    font-size: 0.875rem;
+    line-height: 1.4285714;
+}
+
+/* Responsive iyileştirmeler */
+@media (max-width: 768px) {
+    .btn-list {
+        flex-direction: column;
+    }
+
+    .btn-list .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Accordion düzeltmeleri */
+.accordion-button:not(.collapsed) {
+    background-color: #f3f5f7;
+}
+
+/* TinyMCE container */
+.tox-tinymce {
+    border-radius: 4px;
+}
+
+/* Loading spinner */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.15em;
+}
+
+/* Alert düzenlemeleri */
+.alert {
+    border-radius: 4px;
+}
+
+.alert-dismissible .btn-close {
+    padding: 0.75rem;
+}
+
+/* Pagination */
+.pagination {
+    margin-bottom: 0;
+}
+
+.page-link {
+    color: #206bc4;
+}
+
+.page-link:hover {
+    color: #1a569d;
+}
+
+.page-item.active .page-link {
+    background-color: #206bc4;
+    border-color: #206bc4;
+}
+
+/* Custom file input */
+.form-control[type="file"] {
+    padding: 0.4375rem 0.75rem;
+}
+
+/* Code tag */
+code {
+    background-color: #f3f5f7;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 85%;
+    color: #d63939;
+}
+
+/* Status badges */
+.status-indicator {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+}
+
+.status-indicator.status-active {
+    background-color: #2fb344;
+}
+
+.status-indicator.status-inactive {
+    background-color: #626976;
+}
+
+/* Empty state */
+.empty-state {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #626976;
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    color: #d4d9dd;
+    margin-bottom: 1rem;
+}
+
+/* Utility classes */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.text-truncate-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
