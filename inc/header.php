@@ -2,9 +2,9 @@
 // Dosya: /inc/header.php
 // Frontend header
 
-if (!function_exists('getSettings')) {
+// Config dosyası daha önce yüklenmemişse yükle
+if (!defined('SITE_URL')) {
     require_once __DIR__ . '/config.php';
-    require_once __DIR__ . '/seo.php';
 }
 
 $settings = getSettings();
@@ -117,6 +117,11 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
                         <li class="nav-item">
                             <a class="nav-link <?= in_array($currentPage, ['blog', 'post']) ? 'active' : '' ?>" href="<?= siteUrl('blog') ?>">
                                 Blog
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link <?= $currentPage === 'galeri' ? 'active' : '' ?>" href="<?= siteUrl('galeri') ?>">
+                                Galeri
                             </a>
                         </li>
                         <li class="nav-item">

@@ -80,3 +80,4 @@ foreach ($upload_dirs as $dir) {
 // Veritabanı ve fonksiyonları yükle
 require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/seo.php';

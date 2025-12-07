@@ -81,6 +81,26 @@ $unreadMessages = $db->count('contacts', 'is_read = 0');
                         </div>
                     </li>
 
+                    <!-- Slider -->
+                    <li class="nav-item <?= isActivePage('slider.php') ?>">
+                        <a class="nav-link" href="<?= adminUrl('slider.php') ?>">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <i class="ti ti-slideshow"></i>
+                            </span>
+                            <span class="nav-link-title">Slider</span>
+                        </a>
+                    </li>
+
+                    <!-- Galeri -->
+                    <li class="nav-item <?= isActivePage('gallery.php') ?>">
+                        <a class="nav-link" href="<?= adminUrl('gallery.php') ?>">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <i class="ti ti-photo"></i>
+                            </span>
+                            <span class="nav-link-title">Galeri</span>
+                        </a>
+                    </li>
+
                     <!-- İletişim -->
                     <li class="nav-item <?= isActivePage('contacts.php') ?>">
                         <a class="nav-link" href="<?= adminUrl('contacts.php') ?>">

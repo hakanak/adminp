@@ -7,6 +7,11 @@ require_once __DIR__ . '/inc/config.php';
 $pageTitle = 'Ana Sayfa';
 $db = Database::getInstance();
 
+// Aktif sliderları getir
+$sliders = $db->fetchAll(
+    "SELECT * FROM sliders WHERE is_active = 1 ORDER BY sort_order ASC LIMIT 5"
+);
+
 // Son blog yazıları
 $recentPosts = $db->fetchAll(
     "SELECT * FROM posts WHERE is_active = 1 ORDER BY created_at DESC LIMIT 6"
@@ -20,7 +25,62 @@ $featuredProducts = $db->fetchAll(
 include __DIR__ . '/inc/header.php';
 ?>
 
-<!-- Hero Section -->
+<!-- Slider / Hero Section -->
+<?php if (!empty($sliders)): ?>
+<div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <!-- Indicators -->
+    <?php if (count($sliders) > 1): ?>
+    <div class="carousel-indicators">
+        <?php foreach ($sliders as $index => $slider): ?>
+            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="<?= $index ?>"
+                    <?= $index === 0 ? 'class="active" aria-current="true"' : '' ?>
+                    aria-label="Slide <?= $index + 1 ?>"></button>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+        <?php foreach ($sliders as $index => $slider): ?>
+            <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
+                <img src="<?= siteUrl('uploads/' . $slider['image']) ?>"
+                     class="d-block w-100" alt="<?= e($slider['title']) ?>"
+                     style="max-height: 600px; object-fit: cover;">
+                <?php if ($slider['title'] || $slider['subtitle'] || $slider['button_text']): ?>
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="container">
+                        <?php if ($slider['title']): ?>
+                            <h1 class="display-4 fw-bold text-white mb-3"><?= e($slider['title']) ?></h1>
+                        <?php endif; ?>
+                        <?php if ($slider['subtitle']): ?>
+                            <p class="lead text-white mb-4"><?= e($slider['subtitle']) ?></p>
+                        <?php endif; ?>
+                        <?php if ($slider['button_text'] && $slider['button_url']): ?>
+                            <a href="<?= e($slider['button_url']) ?>" class="btn btn-primary btn-lg">
+                                <?= e($slider['button_text']) ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <!-- Controls -->
+    <?php if (count($sliders) > 1): ?>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Önceki</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Sonraki</span>
+    </button>
+    <?php endif; ?>
+</div>
+<?php else: ?>
+<!-- Default Hero Section (slider yoksa) -->
 <section class="hero bg-primary text-white py-5">
     <div class="container">
         <div class="row align-items-center">
@@ -43,6 +103,7 @@ include __DIR__ . '/inc/header.php';
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <!-- Öne Çıkan Ürünler -->
 <?php if (!empty($featuredProducts)): ?>
